@@ -1,0 +1,6 @@
+const mongoose = require('mongoose');
+mongoose.set('strictQuery',false);
+
+mongoose.connect('mongodb://localhost/dashboard_test').then(()=>{
+    console.log(`connected!`);
+})
