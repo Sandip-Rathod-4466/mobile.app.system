@@ -13,6 +13,7 @@ const Product = require("./models/product");
 
 // port
 const PORT = process.env.PORT || 8000;
+const BASE_URL = process.env.BASE_URL || `http://localhost:${PORT}`;
 
 
 // const upload = multer({ dest: 'uploads/' });
@@ -42,7 +43,7 @@ app.use('/uploads',express.static("./uploads"));
 
 // add product
 app.post('/add',upload,async(req,res)=>{
-    const image = `http://localhost:${PORT}/${req.file.path}`;
+    const image = `${BASE_URL}/${req.file.path}`;
     let result = new Product({
     // img:req.file.path,
     img:image,
@@ -88,7 +89,7 @@ app.get("/product/:key",async(req,res)=>{
 
 app.put("/update/:key",upload,async(req,res)=>{
     if (req.file) {
-        const image = `http://localhost:${PORT}/${req.file.path}`;
+        const image = `${BASE_URL}/${req.file.path}`;
         let result = await Product.updateOne({_id:req.params.key},{$set:{...req.body,img:image}})
         res.send(result)
     }
@@ -121,7 +122,7 @@ app.put("/update/:key",upload,async(req,res)=>{
 
 
 app.listen(PORT,()=>{
-    console.log(`server listen at http://localhost:${PORT}/products`);
+    console.log(`server listen at ${BASE_URL}/products`);
 });
 
 
