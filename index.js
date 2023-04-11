@@ -5,7 +5,6 @@ require("./config.env");
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const multer = require("multer");
-const path = require("path");
 require('./database');
 const Product = require("./models/product");
 
@@ -113,13 +112,6 @@ app.put("/update/:key",upload,async(req,res)=>{
 
 
 })
-
-
-    app.use(express.static("frontend/build"));
-    app.get("*",(req,res)=>{
-        res.sendFile(path.resolve(__dirname,"frontend","build","index.html"))
-    });
-
 
 app.listen(PORT,()=>{
     console.log(`server listen at ${BASE_URL}/products`);
