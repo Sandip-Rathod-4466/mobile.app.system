@@ -13,7 +13,7 @@ const Product = require("./models/product");
 
 // port
 const PORT = process.env.PORT || 8000;
-const BASE_URL = process.env.BASE_URL || `http://localhost:${PORT}`;
+const BASE_URL = `https://mobileapp-zsjp.onrender.com`;
 
 
 // const upload = multer({ dest: 'uploads/' });
