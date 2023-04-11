@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 mongoose.set('strictQuery',false);
 
-mongoose.connect('mongodb://localhost/dashboard_test').then(()=>{
+mongoose.connect('mongodb+srv://todoappaccess:todoappaccess@cluster0.z0olmn9.mongodb.net/mobile_app').then(()=>{
     console.log(`connected!`);
 })
+
